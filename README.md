@@ -14,7 +14,7 @@ A powerful API built with Node.js and TypeScript, capable of aggregating multipl
 - **Owned Games**: List of games owned by the user.
 - **Steam Level**: The user's Steam community level.
 - **Total Badges**: How many badges the user has accumulated.
-- **CS:GO Stats**: Specialized stats if the user plays CS:GO.
+- **CS2 Stats**: Specialized stats if the user plays CS2.
 
 ---
 
