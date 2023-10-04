@@ -14,6 +14,13 @@ const app = express();
 app.use("/", express.static("public"));
 app.use(cors());
 
+app.get("/", (req: Request, res: Response) => {
+  res.send(
+    `<h1>Hey there!</h1> 
+    <p>Open <a href="http://localhost:${PORT}/getFullSteamUserData?steamUrl=STEAM_PROFILE_URL">http://localhost:${PORT}/getFullSteamUserData?steamUrl=STEAM_PROFILE_URL<a/> address to get steam profile data.</p>`
+  );
+});
+
 app.get("/getFullSteamUserData", (req: Request, res: Response) => {
   (async () => {
     const { steamUrl } = req.query;
