@@ -5,6 +5,7 @@ import {
   ISteamUserStatsForGame,
 } from "../interfaces/ISteamworks";
 import { GetTimeStampInHours } from "./dateservice";
+import { STEAM_GAME_COVER_URL } from "./general";
 import {
   GetFriendsList,
   GetOwnedGames,
@@ -27,7 +28,7 @@ export const GetFullUserData = async (steamId: string) => {
       GetStatsForCS2(steamId),
     ]);
 
-    const playerData = data[0];
+    const steamPlayer = data[0];
     const friendsList = data[1];
     const playerBans = data[2];
     const ownedGames = data[3];
@@ -36,7 +37,7 @@ export const GetFullUserData = async (steamId: string) => {
     const cs2Stats = data[6];
 
     const fullData = CreateUserForClient({
-      playerData,
+      steamPlayer,
       friendsList,
       playerBans,
       ownedGames,
@@ -54,7 +55,7 @@ export const GetFullUserData = async (steamId: string) => {
 
 export const CreateUserForClient = (props: ICreateUserParams) => {
   const {
-    playerData,
+    steamPlayer,
     friendsList,
     playerBans,
     ownedGames,
@@ -62,23 +63,23 @@ export const CreateUserForClient = (props: ICreateUserParams) => {
     totalBadges,
     cs2Stats,
   } = props;
-  if (playerData === null) return null;
+  if (steamPlayer === null) return null;
 
   const cs2 = GetCounterStrike2Game(ownedGames, cs2Stats);
 
   const fullData = {
-    steamid: playerData.steamid,
-    personaname: playerData.personaname,
-    profileurl: playerData.profileurl,
-    avatar: playerData.avatar,
-    avatarfull: playerData.avatarfull,
-    avatarmedium: playerData.avatarmedium,
-    realname: playerData.realname,
-    loccountrycode: playerData.loccountrycode,
-    country_image: playerData.loccountrycode
-      ? `https://flagcdn.com/48x36/${playerData.loccountrycode.toLowerCase()}.png`
+    steamid: steamPlayer.steamid,
+    personaname: steamPlayer.personaname,
+    profileurl: steamPlayer.profileurl,
+    avatar: steamPlayer.avatar,
+    avatarfull: steamPlayer.avatarfull,
+    avatarmedium: steamPlayer.avatarmedium,
+    realname: steamPlayer.realname,
+    loccountrycode: steamPlayer.loccountrycode,
+    country_image: steamPlayer.loccountrycode
+      ? `https://flagcdn.com/48x36/${steamPlayer.loccountrycode.toLowerCase()}.png`
       : null,
-    timecreated: new Date(+playerData.timecreated * 1000),
+    timecreated: new Date(+steamPlayer.timecreated * 1000),
     friends: friendsList,
     vacBans: playerBans,
     games:
@@ -109,7 +110,7 @@ const GetCounterStrike2Game = (
     appid: cs2.appid,
     name: cs2.name,
     playtime_forever: GetTimeStampInHours(cs2.playtime_forever),
-    img_icon_url: `https://steamcdn-a.akamaihd.net/steam/apps/${cs2.appid}/capsule_231x87.jpg`,
+    img_icon_url: `${STEAM_GAME_COVER_URL}/${cs2.appid}/capsule_231x87.jpg`,
     stats: GetCounterStrike2Stats(cs2Stats),
   };
 };

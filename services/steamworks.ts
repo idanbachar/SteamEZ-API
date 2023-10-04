@@ -4,12 +4,10 @@ import {
   ISteamGame,
   ISteamPlayer,
   ISteamPlayerBans,
-  ISteamStatsDictionary,
   ISteamUserInventory,
   ISteamUserStatsForGame,
 } from "../interfaces/ISteamworks";
-import { STEAM_API_KEY, STEAM_BASE_URL } from "./general";
-import { IUser } from "../interfaces/ISteamUser";
+import { STEAM_API_KEY, STEAM_BASE_URL, STEAM_INVENTORY_URL } from "./general";
 
 export const GetPlayerData = async (steamId: string) => {
   const endpoint = `${STEAM_BASE_URL}/ISteamUser/GetPlayerSummaries/v2/?key=${STEAM_API_KEY}&steamids=${steamId}`;
@@ -89,7 +87,7 @@ export const GetStatsForCS2 = async (steamId: string) => {
 
 export const GetSteamCSGOInventory = async (steamId: string) => {
   const appID = "730";
-  const endpoint = `https://steamcommunity.com/inventory/${steamId}/${appID}/2?l=english&count=5000`;
+  const endpoint = `${STEAM_INVENTORY_URL}/${steamId}/${appID}/2?l=english&count=5000`;
   console.log(endpoint);
 
   try {

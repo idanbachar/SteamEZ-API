@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.18",
     "axios": "^1.5.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -10,12 +11,12 @@
   "name": "steam-ez-api",
   "description": "",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.ts"
+    "start": "nodemon --watch 'src/**/*.ts' --exec npx ts-node ./src/index.ts"
   },
-  "author": "",
+  "author": "Idan Bachar",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.8.2"

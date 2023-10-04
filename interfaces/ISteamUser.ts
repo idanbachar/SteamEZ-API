@@ -41,7 +41,7 @@ export interface ICS2 {
 }
 
 export interface ICreateUserParams {
-  playerData: ISteamPlayer | null;
+  steamPlayer: ISteamPlayer | null;
   friendsList: ISteamPlayer[] | null;
   playerBans: ISteamPlayerBans | null;
   ownedGames: ISteamGame[] | null;
