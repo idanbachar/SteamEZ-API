@@ -43,6 +43,33 @@ A powerful API built with Node.js and TypeScript, capable of aggregating multipl
 
 ---
 
+## How to Get a Steam API Key
+
+Follow the steps below to obtain your Steam API key:
+
+1. **Login to Steam**:
+
+   - Visit the [Steam Community](https://steamcommunity.com/) website.
+   - Click on the `Login` button at the top-right corner and enter your Steam credentials.
+
+2. **Access the API Key Page**:
+
+   - Navigate to the [Steam API Key Registration](https://steamcommunity.com/dev/apikey) page.
+
+3. **Register for an API Key**:
+
+   - If you haven't set up a Steam Developer account yet, the site may prompt you to agree to their terms and conditions. Read and agree to proceed.
+   - Enter a **Domain Name**. This can be your project's name or the purpose of using the API. For personal projects, you might consider entering "N/A" or "Personal Use".
+   - Click on the `Register` button.
+
+4. **Retrieve Your API Key**:
+   - Once registered, you'll be presented with your unique Steam API key. Make sure to keep this key confidential and do not share it publicly.
+
+> ⚠️ **Warning**: Never commit your Steam API key directly in code or push it to public repositories. Always use environment variables or other secure methods to handle your key.
+
+5. **Integration**:
+   - Use the provided API key in your application as needed according to the Steam Web API documentation.
+
 ## 🚀 Usage
 
 1. **Start the server**:
