@@ -1,4 +1,4 @@
-# 🎮 steam-ez-api
+# 🎮 SteamEZ-API
 
 A powerful API built with Node.js and TypeScript, capable of aggregating multiple Steam user data points into a singular, comprehensive endpoint.
 
@@ -23,7 +23,7 @@ A powerful API built with Node.js and TypeScript, capable of aggregating multipl
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/idanbachar/steam-ez-api.git
+   git clone https://github.com/idanbachar/SteamEZ-API.git
    cd steam-ez-api
    ```
 
